@@ -1,5 +1,14 @@
-echo "node_modules/" > .gitignore
+notepad .gitignore
+echo ".angular/" >> .gitignore
+echo "__pycache__/" >> .gitignore
+echo "*.pyc" >> .gitignore
+echo "node_modules/" >> .gitignore
 echo "dist/" >> .gitignore
 echo ".env" >> .gitignore
-echo "*.log" >> .gitignore
-node_modules
+
+# Добавь правила в .gitignore
+echo ".angular/" >> .gitignore
+echo "__pycache__/" >> .gitignore
+echo "*.pyc" >> .gitignore
+echo "*.pyo" >> .gitignore
+echo ".DS_Store" >> .gitignore
