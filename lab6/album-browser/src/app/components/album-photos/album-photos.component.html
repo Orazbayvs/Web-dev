@@ -1,0 +1,45 @@
+<div class="photos-container">
+    <h1>Album Photos</h1>
+  
+    <!-- Индикатор загрузки -->
+    <div class="loading" *ngIf="loading">
+      <div class="spinner"></div>
+      <p>Loading photos...</p>
+    </div>
+  
+    <!-- Сообщение об ошибке -->
+    <div class="error" *ngIf="error">
+      <p>{{ error }}</p>
+      <button class="back-btn" (click)="goBack()">Go Back</button>
+    </div>
+  
+    <!-- Сетка с фото -->
+    <div class="photos-grid" *ngIf="!loading && !error">
+      <div class="photo-card" *ngFor="let photo of photos">
+        <div class="image-container">
+          <img 
+            [src]="photo.thumbnailUrl" 
+            [alt]="photo.title"
+            (error)="handleImageError($event)"
+            loading="lazy"
+          >
+          <div class="image-fallback" *ngIf="!photo.thumbnailUrl">
+            <span>📷</span>
+          </div>
+        </div>
+        <div class="photo-title">{{ photo.title }}</div>
+      </div>
+  
+      <!-- Пустое состояние -->
+      <div class="empty-state" *ngIf="photos.length === 0">
+        <p>No photos found for this album</p>
+      </div>
+    </div>
+  
+    <!-- Кнопка назад -->
+    <div class="actions">
+      <button class="back-btn" (click)="goBack()">
+        Back to Album
+      </button>
+    </div>
+  </div>

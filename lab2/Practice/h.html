@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Practice</title>
+        <style>
+            body {
+                background-color: bisque;
+            }
+            
+        </style>
+    </head>
+    <script>
+        function Checking(){
+            const age = document.getElementById("Age").value;
+            const message = document.getElementById("message");
+            if(age < 18){
+                message.innerText = "You are too younger, you must be older than 18";
+                message.style.color = "red";
+            }
+            else{
+                message.innerText = "Welcome";
+                message.style.color = "green";
+            }
+        }
+    </script>
+    <body>
+        <h1><strong>Hello, welcome to my web-site!</strong></h1>
+        <h3>Please write.</h3>
+        <input type="text" id="Name" placeholder="Your name">
+        <input type="number" id="Age" placeholder="Your age">
+        <button onclick="Checking()">Check</button>
+        <p id="message"></p>
+    </body>
+</html>
+

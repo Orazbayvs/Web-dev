@@ -1,0 +1,32 @@
+<div class="albums-container">
+    <h1>📀 Альбомы</h1>
+    
+    <!-- Загрузка -->
+    <div class="loading" *ngIf="loading">
+      <div class="spinner"></div>
+      <p>Загрузка альбомов...</p>
+    </div>
+  
+    <!-- Ошибка -->
+    <div class="error" *ngIf="error">
+      <p>❌ {{ error }}</p>
+      <button (click)="loadAlbums()">Попробовать снова</button>
+    </div>
+  
+    <!-- Сетка альбомов -->
+    <div class="albums-grid" *ngIf="!loading && !error">
+      <div class="album-card" *ngFor="let album of albums" (click)="goToAlbum(album.id)">
+        <div class="album-content">
+          <h3>#{{ album.id }}</h3>
+          <p>{{ album.title }}</p>
+          <small>👤 User ID: {{ album.userId }}</small>
+        </div>
+        <button class="delete-btn" (click)="deleteAlbum(album.id, $event)">🗑 Удалить</button>
+      </div>
+  
+      <!-- Пусто -->
+      <div class="empty-state" *ngIf="albums.length === 0">
+        📭 Альбомы не найдены
+      </div>
+    </div>
+  </div>
